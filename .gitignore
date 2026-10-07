@@ -1,0 +1,23 @@
+# Build output
+_site/
+.cache/
+
+# Dependencies
+node_modules/
+
+# Netlify
+.netlify/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Stray logs from local dev servers
+*.log

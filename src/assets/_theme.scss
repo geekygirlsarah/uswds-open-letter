@@ -1,0 +1,31 @@
+// USWDS settings for this project.
+//
+// Keep this file limited to *settings*. Component and utility Sass lives in
+// _custom.scss. Both are forwarded from styles.scss, theme first, so the
+// settings below are applied before any component compiles.
+//
+// Docs: https://designsystem.digital.gov/documentation/developers/phase-two-compile/
+
+// The USWDS version in the font path. This makes the font URLs change when the
+// pinned version changes, which is what lets netlify.toml mark them immutable.
+// scripts/compile-sass.mjs checks this against node_modules and fails the build
+// if the two drift apart, so it only ever needs updating in one place.
+$font-path: "../fonts/3.14.0";
+
+@use "uswds-core" with (
+  // Asset paths are relative to the compiled CSS at /assets/styles.css.
+  // See scripts/copy-uswds-assets.mjs for how the files get there.
+  $theme-font-path: $font-path,
+  $theme-image-path: "../img",
+
+  // USWDS defaults headings to Merriweather and body copy to Source Sans Pro.
+  // Both are kept: that pairing is the design system's look and it suits
+  // long-form prose. The mono family is not used anywhere on this site, and
+  // turning it off keeps six Roboto Mono webfonts out of the build.
+  $theme-font-type-mono: false,
+
+  // Quieter build output. The "notifications" are deprecation notices for
+  // USWDS-internal Sass; they are not actionable from this project.
+  $theme-show-compile-warnings: false,
+  $theme-show-notifications: false
+);

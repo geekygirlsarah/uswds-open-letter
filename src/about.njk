@@ -1,0 +1,73 @@
+---
+layout: layout.njk
+title: About
+permalink: /about/
+description: What this letter is, who wrote it, and how this site and its signing process work.
+---
+
+<div class="grid-container">
+  <article class="usa-prose page margin-top-6 margin-bottom-6">
+    <h1>About this letter</h1>
+
+    <p>
+      This is an open letter asking that the U.S. Web Design System (USWDS) be
+      kept funded and maintained. It was written by former federal employees who
+      helped build and scale it, and it is open to anyone else who wants to sign.
+    </p>
+
+    <h2>Why USWDS matters</h2>
+
+    <p>
+      USWDS is a shared component library. When agencies build on it, a fix to a
+      button or a color contrast problem happens once and every dependent site
+      gets it. Without it, each agency reinvents the same components, and the
+      accessibility work is repeated, or skipped.
+    </p>
+
+    <h2>How signing works</h2>
+
+    <p>
+      Signing means adding your name to a list. It does not mean your employer
+      endorses the letter. If that distinction matters for your situation, say
+      so in your role line, which appears under your name.
+    </p>
+
+    <p>
+      Every signature goes through a pull request, so what is claimed is what
+      someone wrote. The letter text itself is protected: a pull request that
+      changes the letter fails CI unless a maintainer reviews it and applies a
+      label.
+    </p>
+
+    <h2>How this site works</h2>
+
+    <p>
+      The site is a static build. There is no database, no account system, and no
+      JavaScript. Signatures live in a plain YAML file in a public repository, and
+      the site rebuilds from it. That means the full list of signatories is
+      readable without this site, and stays readable if the site goes away.
+    </p>
+
+    <p>
+      The letter is also published as
+      <a class="usa-link" href="/letter.txt" download>a plain-text file</a> and
+      as <a class="usa-link" href="/archive.json">JSON</a>, so it can be copied,
+      archived, and verified independently of this site's styling.
+    </p>
+
+    <h2>The design system</h2>
+
+    <p>
+      This site is styled with USWDS, the same system the letter is about. The
+      version is pinned exactly in the repository, and the stylesheet is compiled
+      from USWDS source rather than copied from a published build, so what ships is
+      traceable to a specific release.
+    </p>
+
+    <p>
+      USWDS is a public-domain work of the United States government. Using it here
+      is not an endorsement by any federal agency, and this site is not a
+      government website.
+    </p>
+  </article>
+</div>

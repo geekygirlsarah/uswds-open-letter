@@ -1,0 +1,52 @@
+---
+layout: layout.njk
+---
+<div class="grid-container">
+  <article class="letter margin-top-6 margin-bottom-6">
+    <div class="usa-prose letter__body">
+      {{ collections.letter[0].content | safe }}
+    </div>
+
+    <p class="letter__date text-bold margin-top-6 margin-bottom-0">
+      {{ site.letterDate | readableDate }}
+    </p>
+  </article>
+
+  <section class="signatories usa-prose margin-bottom-6" aria-labelledby="signatories-heading">
+    <h2 id="signatories-heading">
+      Signatories
+      <span class="usa-tag usa-tag--big margin-left-1">{{ signatories | length }}</span>
+    </h2>
+
+    {% if signatories.length > 0 %}
+      <ul class="signatories__list margin-top-3">
+        {% for signer in signatories %}
+          <li class="signatory">
+            <span class="signatory__name">{{ signer.name }}</span>
+            {% if signer.role %}
+              <span class="signatory__role">{{ signer.role }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="usa-prose margin-top-2">Be the first to sign.</p>
+    {% endif %}
+  </section>
+
+  <aside class="sign-on usa-summary-box margin-bottom-6" aria-labelledby="sign-on-heading">
+    <h2 class="usa-summary-box__heading" id="sign-on-heading">Add your name</h2>
+    <div class="usa-summary-box__text">
+      <p class="usa-prose">
+        Sign as yourself. Please do not sign on behalf of a current or former
+        employer unless they have explicitly told you to.
+      </p>
+      <div class="sign-on__actions">
+        <a class="usa-button" href="/sign/">How to sign</a>
+        <a class="usa-button usa-button--outline" href="/letter.txt" download>
+          Download as text
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>

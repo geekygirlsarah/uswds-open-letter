@@ -1,0 +1,10 @@
+# Browserslist for autoprefixing USWDS output.
+#
+# Kept in sync with @uswds/uswds/.browserslistrc. USWDS documents autoprefixing
+# against this list as a requirement for compiling their Sass.
+#
+# Reference: https://designsystem.digital.gov/documentation/getting-started/developers/phase-two-compile/
+
+> 2%
+last 2 versions
+not dead

@@ -1,0 +1,16 @@
+---
+permalink: /letter.txt
+eleventyExcludeFromCollections: true
+---
+{% for entry in collections.letter %}{{ entry.rawInput | asPlainText }}{% endfor %}
+
+{{ site.letterDate | readableDate }}
+
+
+-------------------------------------------------------------------------------
+Signatories ({{ signatories.length }}):
+
+{% for signer in signatories %}- {{ signer.name }}{% if signer.role %}, {{ signer.role }}{% endif %}
+{% endfor %}
+-------------------------------------------------------------------------------
+Add your name: {{ site.repoUrl }}/blob/main/CONTRIBUTING.md

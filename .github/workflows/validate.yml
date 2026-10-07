@@ -1,0 +1,93 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and validate
+    runs-on: ubuntu-latest
+
+    steps:
+      # Full history: the letter guard below compares against origin/<base>, and
+      # the default shallow checkout does not have that ref locally.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # Fails on a malformed signatories.yml: missing name, duplicate
+      # entry, unknown field, non-ISO date.
+      - name: Validate signatories
+        run: npm run lint:signatories
+
+      - name: Test
+        run: npm test
+
+      # `npm run build` runs check-css-classes as its postbuild step, so this
+      # fails if a class in the built HTML has no rule in styles.css. That
+      # catches USWDS 2 class names (the grid was renamed from usa-grid-* to
+      # grid-* in USWDS 3), which otherwise build and return 200 while the page
+      # renders unstyled.
+      - name: Build
+        run: npm run build
+
+      # The whole point of this repo is that the letter is preserved. A broken
+      # archive feed would undermine that, so prove it parses rather than assume.
+      - name: Verify generated artifacts
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('_site/archive.json','utf8'))"
+          test -s _site/letter.txt
+          test -s _site/index.html
+          test -s _site/assets/styles.css
+          # The nav links to these three pages, so a missing one is a broken site.
+          for page in about sign contact; do
+            test -s "_site/$page/index.html"
+          done
+          # letter.txt is downloaded and pasted into emails, so it must not
+          # contain the rendered HTML that collections.letter[].content holds.
+          if grep -qE '<[a-zA-Z/]' _site/letter.txt; then
+            echo "::error::_site/letter.txt contains HTML markup; the asPlainText filter is not applied"
+            exit 1
+          fi
+          # Front matter leaking into the download would be equally confusing.
+          # Match the front matter keys rather than "---", because the signatory
+          # list is framed with rules of dashes that would false-positive.
+          if head -n 1 _site/letter.txt | grep -qE '^(permalink|eleventyExcludeFromCollections|title):'; then
+            echo "::error::_site/letter.txt appears to start with unstripped front matter"
+            exit 1
+          fi
+
+      # The letter text is not supposed to change in a sign-on pull request. The
+      # `letter-change` label is the escape hatch: a maintainer applies it after
+      # reviewing the change, and the check passes.
+      # Only runs on pull_request; on a push to main `github.base_ref` is empty.
+      - name: Guard the letter text
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --quiet "origin/${{ github.base_ref }}" -- src/letter.md; then
+            echo "letter.md unchanged"
+          elif [ "${{ contains(github.event.pull_request.labels.*.name, 'letter-change') }}" = "true" ]; then
+            echo "letter.md changed and the PR is labeled letter-change"
+          else
+            echo "::error::src/letter.md was modified. Sign-on pull requests must not change the"
+            echo "::error::letter text. If this is an intentional edit to the letter, ask a"
+            echo "::error::maintainer to add the 'letter-change' label after reviewing it."
+            exit 1
+          fi

@@ -1,0 +1,259 @@
+@use "uswds-core" as *;
+
+// Project styles.
+//
+// Everything here is built on USWDS tokens and mixins rather than literal values,
+// so the site stays consistent if a token changes. See
+// https://designsystem.digital.gov/design-tokens/ for the full list.
+
+// ------------------------------------------------------------------
+// Measure
+// ------------------------------------------------------------------
+// Long-form letter text is unreadable at full page width. USWDS caps prose with
+// `usa-prose`, but the signatory list needs its own narrower measure.
+.signatories {
+  max-width: units("tablet");
+}
+
+// ------------------------------------------------------------------
+// Header
+// ------------------------------------------------------------------
+// A plain site header, not `usa-header`. The USWDS header component is built
+// around a mobile nav menu driven by uswds.min.js, and this site is one page
+// with a handful of in-page links.
+.site-header {
+  padding-block: units(4) units(3);
+  border-bottom: 1px solid color("base-lighter");
+}
+
+.site-header__title {
+  margin-bottom: units(1);
+}
+
+.site-header__tagline {
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: units("tablet");
+  color: color("base-dark");
+  font-size: size("body", 5);
+  line-height: line-height("body", 4);
+}
+
+// ------------------------------------------------------------------
+// Navigation
+// ------------------------------------------------------------------
+// Hand-rolled rather than `usa-nav`. The USWDS nav component's primary variant
+// is driven by uswds.min.js, which this site does not ship: it has no
+// JavaScript, and the nav must work without it. USWDS does provide a
+// `usa-nav__submenu` list that works without JS, but it is styled for a header
+// bar this site does not have.
+//
+// Keeping the nav as a plain list means every link is reachable and the current
+// page is marked with aria-current, which is the part that actually matters for
+// assistive technology. `usa-nav` is still forwarded in styles.scss for the
+// submenu styles if the nav grows one.
+.site-nav {
+  border-bottom: 1px solid color("base-lighter");
+  background-color: color("white");
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: units(2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__item {
+  margin: 0;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding-block: units(1);
+  color: color("primary");
+  text-decoration: underline;
+
+  &:hover {
+    color: color("primary-dark");
+  }
+}
+
+// The current page. A background plus a bottom border rather than bold text, so
+// the state is not signalled by weight alone.
+.site-nav__link--current {
+  color: color("ink");
+  font-weight: font-weight("bold");
+  text-decoration: none;
+  box-shadow: inset 0 -4px 0 0 color("primary");
+}
+
+// ------------------------------------------------------------------
+// Letter
+// ------------------------------------------------------------------
+.letter {
+  // Give the letter a little more room than default prose, but keep a
+  // readable measure.
+  max-width: units("desktop");
+}
+
+.letter__body {
+  // The letter is the page's main content, so let it use the full measure.
+  max-width: none;
+
+  // `usa-prose` caps paragraphs at 68ex and list items at 68ex, so the body
+  // would run narrower than the headings above it. Lift the cap so the text
+  // spans the same width as the headings and the grid container.
+  > p,
+  > ul li,
+  > ol li {
+    max-width: none;
+  }
+}
+
+.letter__date {
+  color: color("base-dark");
+  font-size: size("body", 6);
+}
+
+// ------------------------------------------------------------------
+// Interior pages
+// ------------------------------------------------------------------
+// About, Sign, and Contact are all prose, so they share a measure. Without this
+// `usa-prose` alone would run the full grid width, which is too wide to read.
+.page {
+  max-width: units("desktop");
+}
+
+.page__code {
+  padding: units(2);
+  background-color: color("base-lightest");
+  border: 1px solid color("base-lighter");
+  border-radius: radius("md");
+  overflow-x: auto;
+
+  code {
+    // The mono family is disabled in _theme.scss
+    // ($theme-font-type-mono: false), so font-family("mono") throws at compile
+    // time. A generic monospace stack is the honest option: it does not pull in
+    // six webfonts for a handful of command lines.
+    font-family: ui-monospace, "Cascadia Mono", "Consolas", "Courier New", monospace;
+    font-size: size("body", 5);
+  }
+}
+
+// ------------------------------------------------------------------
+// Signatories
+// ------------------------------------------------------------------
+// A definition list rather than a bulleted list: signers are name + optional
+// role, and a list reads as unordered content.
+.signatories__list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.signatory {
+  padding-block: units(1);
+  border-bottom: 1px solid color("base-lighter");
+}
+
+.signatory:last-child {
+  border-bottom: none;
+}
+
+.signatory__name {
+  font-weight: font-weight("bold");
+}
+
+.signatory__role {
+  display: block;
+  color: color("base-dark");
+  font-size: size("body", 6);
+}
+
+// ------------------------------------------------------------------
+// Call to action
+// ------------------------------------------------------------------
+// The sign-on panel uses `usa-summary-box`, so this only handles spacing and
+// the button group.
+.sign-on {
+  margin-block: units(5);
+}
+
+.sign-on__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: units(1);
+  margin-top: units(3);
+}
+
+// USWDS buttons carry their own margin; inside our own flex container that
+// margin would double up the gap.
+.sign-on__actions .usa-button {
+  margin-bottom: 0;
+}
+
+// ------------------------------------------------------------------
+// Footer
+// ------------------------------------------------------------------
+// Hand-rolled instead of `usa-footer`, which forwards usa-form, usa-input,
+// usa-label, and usa-button. None of that is used here.
+//
+// `usa-nav` is used for the footer links rather than the primary header nav,
+// because usa-nav's submenu styles work without JavaScript. The primary nav in
+// layout.njk is a hand-rolled list; see the note there.
+.site-footer {
+  padding-block: units(4);
+  border-top: 1px solid color("base-lighter");
+  background-color: color("base-lightest");
+  margin-top: units(6);
+}
+
+.site-footer__grid {
+  max-width: units("desktop");
+}
+
+.site-footer__note {
+  color: color("base-dark");
+  max-width: units("tablet");
+}
+
+// USWDS does not emit responsive text-align utilities: its text-align rule sets
+// `modifiers: null`, so `tablet:text-right` does not exist in any USWDS build.
+// The footer's call-to-action needs to sit on the right at tablet width, so this
+// is done with a media query instead of a utility class.
+@media (min-width: breakpoints("tablet")) {
+  .tablet\:site-footer__actions {
+    text-align: right;
+  }
+}
+
+// ------------------------------------------------------------------
+// Print
+// ------------------------------------------------------------------
+// The letter is going to get printed, emailed, and pasted into issue threads.
+// Strip the site furniture so a printed page is just the letter.
+@media print {
+  .site-header,
+  .site-footer,
+  .sign-on,
+  .usa-skipnav,
+  .usa-tag {
+    display: none !important;
+  }
+
+  .letter,
+  .signatories {
+    max-width: none;
+  }
+
+  // Print the destination of every link, since a printed link is unusable.
+  .letter a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: size("body", 6);
+    word-break: break-all;
+  }
+}

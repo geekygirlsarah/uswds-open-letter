@@ -1,0 +1,13 @@
+---
+permalink: /archive.json
+eleventyExcludeFromCollections: true
+---
+{
+  "title": {{ site.title | json | safe }},
+  "date": {{ site.letterDate | json | safe }},
+  "canonicalUrl": {{ site.url | json | safe }},
+  "sourceRepo": {{ site.repoUrl | json | safe }},
+  "signatoryCount": {{ signatories | length | json | safe }},
+  "signatories": {{ signatories | json | safe }},
+  "letterHtml": {{ collections.letter[0].content | json | safe }}
+}

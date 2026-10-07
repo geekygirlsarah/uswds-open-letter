@@ -1,0 +1,33 @@
+{
+  "name": "open-letter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An open letter to the government about the US Web Design System, and the people who have signed it.",
+  "license": "CC0-1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prebuild": "node scripts/compile-sass.mjs && node scripts/copy-uswds-assets.mjs",
+    "build": "eleventy",
+    "postbuild": "node scripts/check-css-classes.mjs",
+    "check:css-classes": "node scripts/check-css-classes.mjs",
+    "start": "npm run build && eleventy --serve",
+    "predev": "npm run prebuild",
+    "dev": "eleventy --serve",
+    "sign": "node scripts/sign.mjs",
+    "lint:signatories": "node scripts/validate-signatories.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "@uswds/uswds": "3.14.0",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.28",
+    "sass-embedded": "^1.105.1"
+  },
+  "dependencies": {
+    "yaml": "2.9.1"
+  }
+}

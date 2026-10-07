@@ -1,0 +1,53 @@
+// Project styles.
+//
+// This project forwards individual USWDS packages rather than the whole `uswds`
+// package. A letter site does not need the date picker, combo box, or modal, and
+// the full library is roughly 73 KB gzipped. Add a package here when you reach
+// for a component it does not cover.
+//
+// Run `npx @11ty/eleventy --serve` (npm start) and edit this file to iterate.
+
+@forward "theme";
+
+// Normalize only. Forwarding `uswds-global` would also pull in `uswds-elements`
+// (every form control, including the date picker and combo box), which nothing
+// on this site uses.
+@forward "uswds-core";
+@forward "uswds-elements/lib/normalize";
+@forward "uswds-fonts";
+
+// The layout grid. Note these classes are NOT prefixed with `usa-`: in USWDS 3
+// the grid namespace is `grid-`, so they are `.grid-container`, `.grid-row`,
+// `.grid-col-*`. The USWDS 2 names (`.usa-layout-container`, `.usa-grid-row`)
+// do not exist in this version and compile to nothing, which silently collapses
+// the page to full window width.
+@forward "usa-layout-grid";
+
+// Utilities: margin-*, padding-*, text-*, font-*, and the responsive
+// `tablet:`-prefixed variants. The templates use these throughout.
+//
+// The package is `uswds-utilities`, not `uswds-helpers`. Despite the name,
+// uswds-helpers only forwards `usa-focus` and `usa-sr-only`; forwarding it in
+// expectation of the utility classes silently produces none of them. Note also
+// that the utility class names are not `usa-`-prefixed either.
+@forward "uswds-utilities";
+
+// Typography. This forwards usa-content, usa-display, usa-intro, usa-link,
+// usa-list, usa-paragraph, usa-prose, and usa-dark-background.
+//
+// There is no `usa-heading` class in USWDS 3; heading size comes from
+// `usa-prose` on the container or from the type utilities.
+@forward "uswds-typography";
+
+@forward "usa-skipnav";
+@forward "usa-nav";
+@forward "usa-button";
+@forward "usa-alert";
+@forward "usa-tag";
+@forward "usa-summary-box";
+@forward "usa-icon-list";
+@forward "usa-icon";
+@forward "usa-card";
+@forward "usa-site-alert";
+
+@forward "custom";

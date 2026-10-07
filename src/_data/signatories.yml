@@ -1,0 +1,316 @@
+# Everyone who has signed the letter.
+#
+# Please do not hand-edit this file to add yourself. Run:
+#
+#     npm run sign -- --name "Your Name" --role "Your Role"
+#
+# It appends your entry, formats the file, and opens a pull request. The why is
+# in CONTRIBUTING.md.
+#
+# Rules (enforced by `npm run lint:signatories` in CI):
+#   - `name` is required.
+#   - `role` is optional and freeform: your role, your tie to this work, or
+#     both (e.g. "Product designer, former 18F").
+#   - no two entries may share a name + role combination.
+#   - entries are sorted by name, so the file has a stable order and adding
+#     someone at the end of the alphabet produces a small diff.
+#
+# Signing does not imply that your current or former employer endorses this
+# letter. If that distinction matters for you, say so in your `role` line, e.g.
+# `role: "Product designer, former 18F"`.
+
+- name: "Abigail Fisher"
+  role: "civic service designer"
+  date: "2026-09-26"
+
+- name: "Alan Brouilette"
+  role: "CTO, Illinois State Treasurer's Office"
+  date: "2026-09-26"
+
+- name: "Alder Rhodes"
+  role: "web developer and accessibility specialist"
+  date: "2026-09-26"
+
+- name: "Amanda Kennedy"
+  role: "former 18F service designer"
+  date: "2026-09-26"
+
+- name: "Amy Leadem"
+  role: "Accessibility engineer"
+  date: "2026-09-26"
+
+- name: "Andrew Do"
+  role: "designer and OPEIU 153 rank-and-file member"
+  date: "2026-09-26"
+
+- name: "Anita Cheng"
+  role: "former 18F content strategist"
+  date: "2026-09-26"
+
+- name: "Ash Weaver"
+  role: "software engineer"
+  date: "2026-09-26"
+
+- name: "Beth DeConinck"
+  role: "Accessibility Specialist"
+  date: "2026-09-26"
+
+- name: "Brandon Lenz"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Casey Watts"
+  role: "Staff Software Engineer (front-end, accessibility, design systems), former USCIS"
+  date: "2026-09-26"
+
+- name: "Chris Mather"
+  role: "Product Manager, former 18F"
+  date: "2026-09-26"
+
+- name: "Chris Pimlott"
+  role: "Software Engineer, former USDS"
+  date: "2026-09-26"
+
+- name: "Christian Crumlish"
+  role: "ODI, 18F, Design in Product"
+  date: "2026-09-26"
+
+- name: "Christine Bath"
+  role: "Senior Designer, Former 18F Product Design Manager"
+  date: "2026-09-26"
+
+- name: "Christopher Whitaker"
+  role: "Executive Director, Alliance of Civic Technologists"
+  date: "2026-09-26"
+
+- name: "Colin O’Sullivan"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Cyd Harrell"
+  role: "former chief of staff, 18F"
+  date: "2026-09-26"
+
+- name: "David Cuthbert"
+  role: "Engineering Director"
+  date: "2026-09-26"
+
+- name: "David Luetger"
+  role: "UX Designer, former 18F"
+  date: "2026-09-26"
+
+- name: "Davida Marion"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Dannel Jurado"
+  role: "Senior Software Engineer, union steward"
+  date: "2026-09-26"
+
+- name: "Ellie Hirth"
+  role: "Digital Service Designer"
+  date: "2026-09-26"
+
+- name: "Eric Gade"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Eric Ronne"
+  role: "Dept of ED FSA design, former 18f"
+  date: "2026-09-26"
+
+- name: "Ethan Marcotte"
+  role: "former product designer, 18F"
+  date: "2026-09-26"
+
+- name: "Gabriela Di Sarli"
+  role: "Senior Designer/Researcher"
+  date: "2026-09-26"
+
+- name: "Gale Fernow"
+  role: "former 18F service designer"
+  date: "2026-09-26"
+
+- name: "Gianna Biocca Mackenzie"
+  role: "Accessibility Specialist"
+  date: "2026-09-26"
+
+- name: "Greg Boone"
+  role: "Delivery manager and former 18F"
+  date: "2026-09-26"
+
+- name: "Greg Walker"
+  role: "former 18F principal software engineer"
+  date: "2026-09-26"
+
+- name: "Heather Battaglia"
+  role: "former 18F director of engineering & DSC engineering manager"
+  date: "2026-09-26"
+
+- name: "Heidi Leech"
+  role: "web designer and civil servant"
+  date: "2026-09-26"
+
+- name: "James Armes"
+  role: "Public Interest Technologist, former CMS Cloud"
+  date: "2026-09-26"
+
+- name: "Jami Gibbs"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Jamie Klenetsky Fay"
+  role: "Accessibility specialist and content designer"
+  date: "2026-09-26"
+
+- name: "Jasmine Friedrich"
+  role: "UX designer and accessibility specialist"
+  date: "2026-09-26"
+
+- name: "Jeana Clark"
+  role: "Accessibility specialist & UX Designer"
+  date: "2026-09-26"
+
+- name: "Jeffrey Stevens"
+  role: "Content Strategist"
+  date: "2026-09-26"
+
+- name: "Jennifer Strickland"
+  role: "USWDS contributor as government contractor and W3C Invited Expert"
+  date: "2026-09-26"
+
+- name: "Jia Gu"
+  role: "former 18F and Login.gov UX/product designer"
+  date: "2026-09-26"
+
+- name: "John Skiles Skinner"
+  role: "former 18F software engineer and project lead"
+  date: "2026-09-26"
+
+- name: "Josh Kim"
+  role: "former accessibility lead at VA"
+  date: "2026-09-26"
+
+- name: "Kate Fisher"
+  role: "former 18F service designer"
+  date: "2026-09-26"
+
+- name: "Ken Salter"
+  role: "Senior Software Engineer & Technical Lead as federal contractor"
+  date: "2026-09-26"
+
+- name: "Kerry Powell"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Laura Gerhardt"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Laura Herring"
+  role: "former content strategist, Office of Oversight and Regulatory Systems, TTS"
+  date: "2026-09-26"
+
+- name: "Logan Arkema"
+  role: "Federal Software Engineer"
+  date: "2026-09-26"
+
+- name: "Lynn Stahl"
+  role: "Senior Product Manager & former community maintainer"
+  date: "2026-09-26"
+
+- name: "Makayla Hipke"
+  role: "Content strategist, former TTS"
+  date: "2026-09-26"
+
+- name: "Mathias Rechtzigel"
+  role: "Technologist, formerly Digital Service at CMS, U.S. Digital Corps"
+  date: "2026-09-26"
+
+- name: "Matt Jadud"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Matt Henry"
+  role: "former USWDS Engineering Lead and open source community maintainer"
+  date: "2026-09-26"
+
+- name: "Matthew Isaacs"
+  role: "UI/UX Designer"
+  date: "2026-09-26"
+
+- name: "Mel Choyce-Dwan"
+  role: "Product Designer, former 18F"
+  date: "2026-09-26"
+
+- name: "Mike Gintz"
+  role: "former 18F/10x strategist and designer"
+  date: "2026-09-26"
+
+- name: "Mina Chuong"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Nadya Primak"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Noah Kunin"
+  role: "18F and Technology Transformation Services co-founder"
+  date: "2026-09-26"
+
+- name: "Peter Karman"
+  role: "software developer, former 18F"
+  date: "2026-09-26"
+
+- name: "Rachael Dietkus"
+  role: "LCSW, former USDC design supervisor, former social worker-technologist, USDS"
+  date: "2026-09-26"
+
+- name: "Rebecca Refoy"
+  role: "former 18F product & delivery manager"
+  date: "2026-09-26"
+
+- name: "Robert Hasselle"
+  role: "Software engineer"
+  date: "2026-09-26"
+
+- name: "Rosamund Lannin"
+  role: "Content Strategist"
+  date: "2026-09-26"
+
+- name: "Ryan Munsch"
+  role: "Software Engineer"
+  date: "2026-09-26"
+
+- name: "Samira Sadat"
+  role: "Software Engineer, former TTS and US Digital Corps"
+  date: "2026-09-26"
+
+- name: "Sarah Rudder"
+  role: "USWDS contributor from 2021-2026, fmr Cloud.gov UX lead"
+  date: "2026-09-26"
+
+- name: Sarah Withee
+  role: former 18F software engineer, former CODE PA head of backend development
+  date: 2026-10-01
+
+- name: "Trevor Pierce"
+  role: "Accessibility engineer"
+  date: "2026-09-26"
+
+- name: "T Liu"
+  role: "software engineer"
+  date: "2026-09-26"
+
+- name: "Will Barton"
+  role: "software developer, former CFPB"
+  date: "2026-09-26"
+
+- name: "Yejee Choi"
+  role: "software engineer"
+  date: "2026-09-26"
+
+- name: "Zak Thompson"
+  role: "software engineer"
+  date: "2026-09-26"

@@ -1,0 +1,76 @@
+---
+layout: layout.njk
+title: Sign the letter
+permalink: /sign/
+description: How to add your name to the open letter about the US Web Design System.
+---
+
+<div class="grid-container">
+  <article class="usa-prose page margin-top-6 margin-bottom-6">
+    <h1>Sign the letter</h1>
+
+    <p>
+      Anyone can sign, as themselves. You do not need permission from anyone, and
+      you do not need to have worked on USWDS.
+    </p>
+
+    <div class="usa-alert usa-alert--info margin-y-4">
+      <div class="usa-alert__body">
+        <h2 class="usa-alert__heading">Sign as yourself, not your employer</h2>
+        <p class="usa-alert__text">
+          Adding your name does not mean your current or former employer endorses
+          this letter. If that distinction matters for your situation, put it in
+          your role line, for example "Product designer, former 18F".
+        </p>
+      </div>
+    </div>
+
+    <h2>The command</h2>
+
+    <p>Clone the repository, install dependencies, then run:</p>
+
+    <pre class="page__code"><code>npm run sign -- --name "Your Name" --role "Product designer, former 18F"</code></pre>
+
+    <p>Only <code>--name</code> is required. The other flag is optional:</p>
+
+    <ul class="usa-list">
+      <li><code>--role</code> your role, your tie to this work, or both, if you want it listed</li>
+    </ul>
+
+    <p>
+      The script inserts your entry in alphabetical order, then opens a pull
+      request. It never touches the letter text.
+    </p>
+
+    <h2>Without the command line</h2>
+
+    <p>
+      Signatures are a plain YAML file in a public repository. You can edit it
+      directly and open a pull request in a browser. The rules CI enforces are
+      short:
+    </p>
+
+    <ul class="usa-list">
+      <li><code>name</code> is required.</li>
+      <li><code>date</code> is required, in <code>YYYY-MM-DD</code> format.</li>
+      <li><code>role</code>, if present, is freeform: your role, your tie to this
+        work, or both.</li>
+      <li>No two entries may share the same name and role.</li>
+      <li>Keep the list in alphabetical order by name.</li>
+    </ul>
+
+    <p>
+      Run <code>npm run lint:signatories</code> locally to check your edit before
+      you push it.
+    </p>
+
+    <h2>What happens next</h2>
+
+    <p>
+      A maintainer reviews the pull request. Once it merges, the site rebuilds and
+      your name appears on the <a class="usa-link" href="/">letter page</a> and in
+      the <a class="usa-link" href="/archive.json">JSON archive</a>. There is no
+      mailing list and no notification; the public record is the record.
+    </p>
+  </article>
+</div>

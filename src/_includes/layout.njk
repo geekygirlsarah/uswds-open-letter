@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="canonical" href="{{ site.url }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ site.title }}" />
+    <meta property="og:description" content="{{ site.description }}" />
+    <meta property="og:url" content="{{ site.url }}" />
+  </head>
+  <body>
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-col-fill">
+            <h1 class="site-header__title margin-top-0">
+              {{ site.title }}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="grid-container">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link{% if page.url == '/' %} site-nav__link--current{% endif %}"
+               href="/"
+               {% if page.url == '/' %}aria-current="page"{% endif %}>Letter</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link{% if page.url == '/about/' %} site-nav__link--current{% endif %}"
+               href="/about/"
+               {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link{% if page.url == '/sign/' %} site-nav__link--current{% endif %}"
+               href="/sign/"
+               {% if page.url == '/sign/' %}aria-current="page"{% endif %}>Sign</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link{% if page.url == '/contact/' %} site-nav__link--current{% endif %}"
+               href="/contact/"
+               {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="grid-container site-footer__grid">
+        <div class="grid-row">
+          <div class="grid-col-12 tablet:grid-col-8">
+            <p class="site-footer__note usa-prose">
+              This is a community effort by private citizens. Adding your name
+              does not imply your employer endorses this letter. The
+              <a class="usa-link" href="{{ site.repoUrl }}/blob/main/CONTRIBUTING.md">contributing guide</a>
+              explains how to sign.
+            </p>
+            <p class="site-footer__note usa-prose margin-top-1">
+              This is not a government website. Styled with the
+              <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/">U.S. Web Design System</a>,
+              which is the subject of the letter.
+            </p>
+          </div>
+          <div class="grid-col-12 tablet:grid-col-4 tablet:site-footer__actions margin-top-3 tablet:margin-top-0">
+            <a class="usa-button usa-button--outline" href="{{ site.repoUrl }}/blob/main/CONTRIBUTING.md#add-your-name">
+              Add your name
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
