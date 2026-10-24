@@ -43,10 +43,15 @@ That community took years to build. It’s part of the infrastructure, too.
 #### GSA decisions put critical infrastructure at risk
 
 Anne Petersen, USWDS's federal product lead and its sole full-time staff member (since DOGE cuts in spring of 2025) was placed on administrative leave and replaced. GSA has shifted the USWDS staffing to intra-agency and political employees who **lack experience in delivering government digital services, the USWDS system, or in managing projects with significant legal, compliance, and usability concerns at a national scale**. At approximately the same time, USWDS open source contribution access was revoked for established community maintainers and contributors.
+
 Agencies operating critical systems across public services need USWDS to be developed with transparency and continuity. Unfortunately, the above changes occurred without any notice to the maintainers affected or to the broader community of government teams and organizations that depend on USWDS.
+
 GSA leadership changed the people responsible for maintaining USWDS without publicly explaining how its established accessibility testing, quality assurance, release management, and community contribution processes will continue. This leaves delivery teams unable to trust that the system will meet user needs or legal requirements.
+
 For agencies and delivery teams, trust in USWDS has always meant more than trusting that the code runs. It means trusting that accessibility testing happened, that changes were reviewed by people who understand the downstream consequences, that issues raised by government teams would reach people familiar with the environments in which USWDS operates, and that releases followed established engineering and quality-assurance practices.
+
 The community of practitioners have trusted they would be listened to when identifying problems, contributing fixes, challenging assumptions, ultimately improving the system.
+
 When accessibility and compliance expertise disappears, community maintainers lose access, and established quality-assurance processes are disrupted without clear communication, agencies are left with a difficult question: _Can we continue to treat USWDS as trusted government infrastructure?_ Given the removal of experienced community maintainers and user comments from public discussions, we believe the answer, currently, is no.
 
 **GSA has the ability to restore that trust.**

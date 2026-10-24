@@ -15,6 +15,17 @@
   <body>
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
+    <!-- TODO: fix color on this -->
+    <section class="usa-banner section-class">
+        <div data-testid="gridContainer" class="grid-container padding-y-1 line-height-sans-1">
+          <span class="usa-banner__header-text">
+            This is not an official government website. Views expressed here represent the personal opinions of members of the USWDS community. Styled with the <a href="https://designsystem.digital.gov/">U.S. Web Design System</a>, which is the subject of the letter.
+          </span>
+        </div>
+    </section>
+
+
+    <!-- TODO: Fix color on this too to blue like 18f.org -->
     <header class="site-header">
       <div class="grid-container">
         <div class="grid-row">
@@ -45,11 +56,6 @@
                href="/sign/"
                {% if page.url == '/sign/' %}aria-current="page"{% endif %}>Sign</a>
           </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link{% if page.url == '/contact/' %} site-nav__link--current{% endif %}"
-               href="/contact/"
-               {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -68,17 +74,8 @@
               <a class="usa-link" href="{{ site.repoUrl }}/blob/main/CONTRIBUTING.md">contributing guide</a>
               explains how to sign.
             </p>
-            <p class="site-footer__note usa-prose margin-top-1">
-              This is not a government website. Styled with the
-              <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/">U.S. Web Design System</a>,
-              which is the subject of the letter.
-            </p>
           </div>
-          <div class="grid-col-12 tablet:grid-col-4 tablet:site-footer__actions margin-top-3 tablet:margin-top-0">
-            <a class="usa-button usa-button--outline" href="{{ site.repoUrl }}/blob/main/CONTRIBUTING.md#add-your-name">
-              Add your name
-            </a>
-          </div>
+
         </div>
       </div>
     </footer>
